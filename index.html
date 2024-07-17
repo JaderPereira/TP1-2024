@@ -1,16 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Idade</title>
 </head>
 <body>
+    <img src="senhora.jpg" id="senhora" alt="foto de uma senhora">
+    <img src="jovem.jpg" id="jovem" alt="foto de um joven">
+    <img src="erro.jpg" id="erro" alt="imagem de erro">
+
     <script>
-        let m = prompt("insira a massa em quilogramas")
-        let a = prompt("Insira a aceleração em km/h")
-        let f = m * a
-        alert("A força é: " + f)
+        let idade = prompt('Insira a idade:')
+        let senhora = document.querySelector('#senhora')
+        let jovem = document.querySelector('#jovem')
+        let erro = document.querySelector('#erro')
+
+        erro.style.display = 'none'
+        jovem.style.display = 'none'
+        senhora.style.display = 'none'
+
+        if(idade >= 18 && idade < 155 && idade >= 0) {
+            alert(`Sua idade é ${idade}. Você é de maior`)
+            senhora.style.display = 'block'
+            
+        } else if(idade >= 0 && idade < 155) {
+            alert(`Sua idade é ${idade}. Você é de menor`)
+            jovem.style.display = 'block'
+            
+        } else {
+            alert('idade invalida')
+            erro.style.display = 'block'
+        }
+        
+        //a versão mais simples desse código funciona com o operador ternário tambem.
+        //let resultado = idade >= 18? `Sua idade é ${idade}. Você é de maior`:`Sua idade é ${idade}. Você é de menor`
+        //alert(resultado)
     </script>
 </body>
 </html>

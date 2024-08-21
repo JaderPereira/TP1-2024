@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vetores 2</title>
+</head>
+<body>
+    <script>
+        let numeros = []
+        let maior
+
+        for(let aux = 0 ; aux < 5 ; aux++) {
+            numeros.push(prompt('Insira o '+(aux + 1)+'° numero:'))
+        }
+        numeros.map(Number)
+
+        for(let aux = 0 ; aux < 5 ; aux++) {
+            if(numeros[aux] == undefined || numeros[aux + 1] == undefined) break
+
+            if(numeros[aux] > numeros[(aux+1)]) {
+                maior = numeros[aux]
+            } else {
+                maior = numeros[(aux + 1)]
+            }
+        }
+        alert(maior)
+
+        
+        /*
+        let numeros = []
+
+        for(let aux = 1 ; aux <= 8 ; aux++) {
+            numeros.push(prompt('Insira o '+(aux)+'° numero:'))
+        }
+        for(let aux in numeros) {
+            if(numeros[aux] > 0) {
+                alert(numeros[aux])
+            } 
+        }*/
+    </script>
+</body>
+</html>

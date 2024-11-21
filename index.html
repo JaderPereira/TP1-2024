@@ -1,41 +1,74 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Idade</title>
+    <title>Document</title>
 </head>
 <body>
-    <img src="senhora.jpg" id="senhora" alt="foto de uma senhora">
-    <img src="jovem.jpg" id="jovem" alt="foto de um joven">
-    <img src="erro.jpg" id="erro" alt="imagem de erro">
+    <button class="lutar">lutar</button>
+    <button class="fugir">fugir</button>
+    <button class="item">usar item</button>
+    
+    <br>
+    <br>
+    <br>
 
-    <script>
-        let idade = prompt('Insira a idade:')
-        let senhora = document.querySelector('#senhora')
-        let jovem = document.querySelector('#jovem')
-        let erro = document.querySelector('#erro')
+    <button class="passo">proximo passo</button>
+    <button class="fechar">fechar votacao</button>
 
-        erro.style.display = 'none'
-        jovem.style.display = 'none'
-        senhora.style.display = 'none'
+    <script src="index.js">
+        let item = 0, fugir = 0, lutar = 0
+        let ordem = 1
+        let votacaoAberta = false   
+        let botoes = document.querySelectorAll('button')
+        let passos = [
+            {nome: 'onça', ordem: 1, resultado: null},
+            {nome: 'tribo inimiga', ordem: 2, resultado: null},
+            {nome: 'batalha  final', ordem: 3, resultado: null},
+        ]
 
-        if(idade >= 18 && idade < 155 && idade >= 0) {
-            alert(`Sua idade é ${idade}. Você é de maior`)
-            senhora.style.display = 'block'
+        document.addEventListener('click', (e) => {
+            const alvo = e.target
+
+            if(alvo.classList.contains('fechar')) {
+                if(votacaoAberta) {
+                    votacaoAberta = false
+                }
+            }
+
+            if(alvo.classList.contains('passo')) {
+                if(!votacaoAberta) {
+                    for(let passo of passos) {
+                        if(passo.ordem == ordem) {
+                            passo.resultado = votacao(alvo)
+                            votacaoAberta = true
+                        }
+                    }
+                } else {
+                    console.log('a votação aonda está aberta')
+                }
+            }
+
+            console.log(passos)
+
+        })
+
+        function votacao(alvo) {
+            setTimeout(() => {
+                if(alvo.classList.contains('fugir') && votacaoAberta) {
+                    fugir++
+                } else if(alvo.classList.contains('lutar') && votacaoAberta){
+                    lutar++
+                } else if(alvo.classList.contains('item') && votacaoAberta) {
+                    item++
+                }
+                console.log(fugir, lutar, item)
+            }, 10000);
+            console.log(Math.max(fugir, lutar, item))
+            return Math.max(fugir, lutar, item)
             
-        } else if(idade >= 0 && idade < 155) {
-            alert(`Sua idade é ${idade}. Você é de menor`)
-            jovem.style.display = 'block'
-            
-        } else {
-            alert('idade invalida')
-            erro.style.display = 'block'
         }
-        
-        //a versão mais simples desse código funciona com o operador ternário tambem.
-        //let resultado = idade >= 18? `Sua idade é ${idade}. Você é de maior`:`Sua idade é ${idade}. Você é de menor`
-        //alert(resultado)
     </script>
 </body>
 </html>

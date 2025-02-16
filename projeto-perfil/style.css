@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100vh;
+
+}
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #bfbfbfb9;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+h2 {
+    margin-top: 10px;
+}
+
+main {
+    overflow-y: auto;
+    width: 50%;
+    height: 90%;
+    padding: 20px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 30px 1px #00000035;
+    display: flex;
+    flex-direction: column;
+}
+main::-webkit-scrollbar {
+    border-radius: 20px;
+}
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.principal {
+    display: flex;
+    flex-wrap: wrap;
+}
+.imagem {
+    width: 70%;
+    height: 150px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    background-color: #ddd;
+}
+input[type='text'] {
+    height: 30px;
+    font-size: 1.2em;
+    width: 100%;
+    text-indent: 5px;
+}
+.editar {
+    background-color: #90A686;
+    border: none;
+    border-radius: 5px;
+    padding: 7px 0;
+    margin: 5px 0;
+    width: 100%;
+    transition: 0.4s;
+    align-self: center;
+    font-weight: bold;
+}
+.editar:hover {
+    background-color: #6D8F6C;
+}
+.campoNome, .campoFoto {
+    width: 50%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.editarNome, .botaoUpload {
+    width: 97%;
+}
+.campoFoto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+ul{
+    width: 100%;
+    list-style-position: inside;
+}
+.excluirPassaTempo {
+    padding: 3px 5px;
+    background-color: #90A686;
+    font-weight: bold;
+    border: none;
+    border-radius: 2px;
+    margin-left: 4px;
+    text-align: center;
+    line-height: 12px;
+    transition: 0.4s;
+}
+.excluirPassaTempo:hover {
+    background-color: #6D8F6C;    
+}
+.campoItem {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+li {
+    text-indent: 7px;
+}
+.campoItem:hover {
+    background-color: #BFBFBF;
+}
+@media screen and (max-width: 700px) {
+    main {
+        width: 90%;
+    }
+    .principal {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    .campoNome, .campoFoto {
+        width: 100%;
+    }
+    .imagem {
+        width: 100%;
+    }
+    
+}

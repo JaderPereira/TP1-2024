@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Perfil</h1>
+        <div class="principal">
+            
+            <div class="campo campoNome">
+                <input type="button" value="Editar nome" class="editar editarNome">
+                <p>
+                    <span class="nome">Nenhum nome inserido </span>
+                </p>
+                <h2>Nome</h2>
+            </div>
+            <div class="campo campoFoto">
+                <div class="imagem"></div>
+                <input type="file" class="editar editarFoto" hidden>
+                <button class="editar botaoUpload">Escolher Foto</button>
+            </div>
+            <p class="mensagemImagem">Nenhuma imagem selecionada</p>
+        </div>
+
+        <div class="campo campoNascimento">
+            <h2>Nascimento</h2>
+            <p>
+                <span class="nascimento">Nenhuma data de nascimento inserida</span> 
+            </p>
+            <input type="button" value="Editar nascimento" class="editar editarNascimento">
+        </div>
+                
+        <div class="campo campoCidade">
+            <h2>Cidade</h2>
+            <p>
+                <span class="cidade">Nenhumas cidade inserida</span> 
+            </p>
+            <input type="button" value="Editar cidade" class="editar editarCidade">
+        </div>
+
+        <div class="campo campoPassaTempo">
+            <h2>Passa Tempos</h2>
+            <input type="button" value="Adicionar" class="editar editarPassaTempo">
+            <p class="listaMensagem"></p>
+            <ul class="passaTempo"></ul>    
+
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vetores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="flexConteiner">
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+    </section>
+
+
+    <p id="resultado"></p>
+
+    <script>
+        let numeros = []
+        let tamanho = prompt('Quantos números você quer armazenar')
+        
+        for(let aux = 0 ; aux < tamanho ; aux++) {
+            numeros.push(prompt('Insira o ' + (aux + 1) + '° número'))
+        }
+        
+        for(let aux in numeros) {
+            alert(numeros[aux])
+            document.querySelector('#resultado').innerHTML += ' ' + numeros[aux]
+        }
+        document.querySelector('#resultado').innerHTML += '.'
+        
+        </script>
+
+</body>
+</html>

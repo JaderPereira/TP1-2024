@@ -6,11 +6,69 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        let m = prompt("insira a massa em quilogramas")
-        let a = prompt("Insira a aceleração em km/h")
-        let f = m * a
-        alert("A força é: " + f)
+    <button class="lutar">lutar</button>
+    <button class="fugir">fugir</button>
+    <button class="item">usar item</button>
+    
+    <br>
+    <br>
+    <br>
+
+    <button class="passo">proximo passo</button>
+    <button class="fechar">fechar votacao</button>
+
+    <script src="index.js">
+        let item = 0, fugir = 0, lutar = 0
+        let ordem = 1
+        let votacaoAberta = false   
+        let botoes = document.querySelectorAll('button')
+        let passos = [
+            {nome: 'onça', ordem: 1, resultado: null},
+            {nome: 'tribo inimiga', ordem: 2, resultado: null},
+            {nome: 'batalha  final', ordem: 3, resultado: null},
+        ]
+
+        document.addEventListener('click', (e) => {
+            const alvo = e.target
+
+            if(alvo.classList.contains('fechar')) {
+                if(votacaoAberta) {
+                    votacaoAberta = false
+                }
+            }
+
+            if(alvo.classList.contains('passo')) {
+                if(!votacaoAberta) {
+                    for(let passo of passos) {
+                        if(passo.ordem == ordem) {
+                            passo.resultado = votacao(alvo)
+                            votacaoAberta = true
+                        }
+                    }
+                } else {
+                    console.log('a votação aonda está aberta')
+                }
+            }
+
+            console.log(passos)
+
+        })
+
+        function votacao(alvo) {
+            setTimeout(() => {
+                if(alvo.classList.contains('fugir') && votacaoAberta) {
+                    fugir++
+                } else if(alvo.classList.contains('lutar') && votacaoAberta){
+                    lutar++
+                } else if(alvo.classList.contains('item') && votacaoAberta) {
+                    item++
+                }
+                console.log(fugir, lutar, item)
+            }, 10000);
+            console.log(Math.max(fugir, lutar, item))
+            return Math.max(fugir, lutar, item)
+            
+        }
     </script>
 </body>
 </html>

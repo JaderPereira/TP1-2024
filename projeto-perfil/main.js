@@ -7,6 +7,7 @@ const botaoNome = document.querySelector('.editarNome')
 const botaoNascimento = document.querySelector('.editarNascimento')
 const botaoCidade = document.querySelector('.editarCidade')
 const botaoPassaTempo = document.querySelector('.editarPassaTempo')
+const botoes = document.querySelectorAll('.editar')
 
 const campoNome = document.querySelector('.campoNome')
 const campoNascimento = document.querySelector('.campoNascimento')
@@ -17,6 +18,10 @@ const editarFoto = document.querySelector('.editarFoto')
 const botaoUpload = document.querySelector('.botaoUpload')
 const mensagemImagem = document.querySelector('.mensagemImagem')
 const imagem = document.querySelector('.imagem')
+
+for(let i = 0; i < botoes.length; i++) {
+    botoes[i].setAttribute('hidden', '')
+}
 
 botaoUpload.addEventListener('click', () => {
     editarFoto.click()
@@ -45,8 +50,19 @@ editarFoto.addEventListener('change', function (e) {
 document.addEventListener('click', function (e) {
     const el = e.target
 
-    if(el.classList.contains('excluirPassaTempo')){
-        el.parentElement.parentElement.remove()
+    if(el.classList.contains('editarPerfil')) {
+        for(let i = 0; i < botoes.length; i++) {
+            botoes[i].setAttribute('hidden', '')
+        }
+        el.classList.add('mostrar')
+        el.classList.remove('editarPerfil')
+    } else if(el.classList.contains('mostrar')) {
+        for(let i = 0; i < botoes.length; i++) {
+            botoes[i].removeAttribute('hidden')
+        }
+        editarFoto.setAttribute('hidden', '')
+        el.classList.remove('mostrar')
+        el.classList.add('editarPerfil')
     }
 
     if(el.classList.contains('editar')){
@@ -62,6 +78,10 @@ document.addEventListener('click', function (e) {
         if(el.classList.contains('editarPassaTempo')){
             atualizaCampo(botaoPassaTempo, 'enviarPassaTempo', 'inputPassaTempo', campoPassaTempo, passaTempo, 'passaTempo')
         }
+    }
+
+    if(el.classList.contains('excluirPassaTempo')){
+        el.parentElement.parentElement.remove()
     }
 })
 

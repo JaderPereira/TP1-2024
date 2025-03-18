@@ -4,71 +4,167 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="lutar">lutar</button>
-    <button class="fugir">fugir</button>
-    <button class="item">usar item</button>
-    
-    <br>
-    <br>
-    <br>
+    <h1>Formulário HTML</h1>
+    <h2>Preencha o formulário abaixo</h2>
 
-    <button class="passo">proximo passo</button>
-    <button class="fechar">fechar votacao</button>
+    <fieldset>
+        <legend>Dados pessoais</legend>
+        <p class="campo">
+            <label for="i_nome">Nome</label>
+            <input type="text" id="i_nome">
 
-    <script src="index.js">
-        let item = 0, fugir = 0, lutar = 0
-        let ordem = 1
-        let votacaoAberta = false   
-        let botoes = document.querySelectorAll('button')
-        let passos = [
-            {nome: 'onça', ordem: 1, resultado: null},
-            {nome: 'tribo inimiga', ordem: 2, resultado: null},
-            {nome: 'batalha  final', ordem: 3, resultado: null},
-        ]
+            <label for="i_sobrenome">Sobrenome</label>
+            <input type="text" id="i_sobrenome">
+        </p>
 
-        document.addEventListener('click', (e) => {
-            const alvo = e.target
+        <p class="campo">
+            <label for="i_nascimento">Nascimento</label>
+            <input type="text" id="i_dia" placeholder="Dia">
+            <input type="text" id="i_mes" placeholder="Mês">
+            <input type="text" id="i_ano" placeholder="Ano">
+        </p>
+        <p class="campo">
+            <label for="i_rg">RG</label>
+            <input type="text" id="i_rg">
+        </p>
+        <p class="campo">
+            <label for="i_cpf">CPF</label>
+            <input type="text" id="i_cpf">
+        </p>
+    </fieldset>
 
-            if(alvo.classList.contains('fechar')) {
-                if(votacaoAberta) {
-                    votacaoAberta = false
-                }
-            }
+    <fieldset>
+        <legend>Dados de endereço</legend>
+        <p class="campo">
+            <label for="i_rua">Rua</label>
+            <input type="text" id="i_rua">
+            <label for="i_numero">Número</label>
+            <input type="text" id="i_numero">
+        </p>
+        <p class="campo">
+            <label for="i_bairro">Bairro</label>
+            <input type="text" id="i_bairro">
+        </p>
+        <p class="campo">
+            <label for="i_estado">Estado</label>
+            <input type="text" id="i_estado">
+        </p>
+        <p class="campo">
+            <label for="i_cidade">Cidade</label>
+            <input type="text" id="i_cidade">
+        </p>
+        <p class="campo">
+            <label for="i_cep">CEP</label>
+            <input type="text" id="i_cep">
+        </p>
+    </fieldset>
 
-            if(alvo.classList.contains('passo')) {
-                if(!votacaoAberta) {
-                    for(let passo of passos) {
-                        if(passo.ordem == ordem) {
-                            passo.resultado = votacao(alvo)
-                            votacaoAberta = true
-                        }
-                    }
-                } else {
-                    console.log('a votação aonda está aberta')
-                }
-            }
+    <fieldset>
+        <legend>Dados de login</legend>
+        <p class="campo">
+            <label for="i_email">E-mail</label>
+            <input type="text" id="i_email">
+        </p>
+        <p class="campo">
+            <label for="i_perfil">Imagem de perfil</label>
+            <input type="image" id="i_perfil">
+        </p>
+        <p class="campo">
+            <label for="i_login">Login de usuário</label>
+            <input type="text" id="i_login">
+        </p>
+        <p class="campo">
+            <label for="i_senha">Senha</label>
+            <input type="text" id="i_senha">
+        </p>
+        <p class="campo">
+            <label for="i_confirma_senha">Confirme senha</label>
+            <input type="text" id="i_confirma_senha">
+        </p>
+    </fieldset>
 
-            console.log(passos)
+    <fieldset>
+        <legend>Complementos</legend>
+        <p class="campo">
+            <label for="i_esporte">Esporte predileto</label>
+            <input type="text" id="i_esporte">
+        </p>
+        <p class="campo">
+            <label for="i_arquivo">Arquivos pessoais</label>
+            <input type="file" id="i_arquivo">
+        </p>
+        <p class="campo">
+            <p class="subcampo">
+                <label for="i_sexo">Sexo de nascimento</label>
+                <input type="text" id="i_sexo">    
+            </p>
+            <p class="subcampo">
+                <h3>Recursos que tenho em casa</h3>
+                <label for="i_celular">Celular</label>
+                <input type="checkbox" name="recursos" id="i_celular" value="celular">
 
-        })
+                <label for="i_tablet">Tablet</label>
+                <input type="checkbox" name="recursos" id="i_tablet" value="tablet">
 
-        function votacao(alvo) {
-            setTimeout(() => {
-                if(alvo.classList.contains('fugir') && votacaoAberta) {
-                    fugir++
-                } else if(alvo.classList.contains('lutar') && votacaoAberta){
-                    lutar++
-                } else if(alvo.classList.contains('item') && votacaoAberta) {
-                    item++
-                }
-                console.log(fugir, lutar, item)
-            }, 10000);
-            console.log(Math.max(fugir, lutar, item))
-            return Math.max(fugir, lutar, item)
-            
-        }
-    </script>
+                <label for="i_notebook">Notebook</label>
+                <input type="checkbox" name="recursos" id="i_notebook" value="notebook">
+
+                <label for="i_pc">Computador de mesa</label>
+                <input type="checkbox" name="recursos" id="i_pc" value="pc">
+
+                <label for="i_internet">Internet</label>
+                <input type="checkbox" name="recursos" id="i_internet" value="internet">
+            </p>
+        </p>
+        <p class="campo">
+            <label for="i_cor_fundo">Selecione uma cor para o fundo do formulário</label>
+            <input type="color" id="i_cor_fundo">
+        </p>
+        <p class="campo">
+            <label for="i_cor_fonte">Selecione uma cor para a fonte do formulário</label>
+            <input type="color" id="i_cor_fonte">
+        </p>
+        <p class="campo">
+            <label for="i_aniversario">Aniversário</label>
+            <input type="date" id="i_aniversario">
+        </p>
+        <p class="campo">
+            <label for="i_data">Escolha uma data</label>
+            <input type="date" id="i_data">
+        </p>
+        <p class="campo">
+            <label for="i_data_hora">Escolha uma data com hora</label>
+            <input type="text" id="i_data_hora">
+        </p>
+        <p class="campo">
+            <label for="i_mes_ano">Mês ano</label>
+            <input type="month" id="i_mes_ano">
+        </p>
+        <p class="campo">
+            <label for="i_semana">Semana</label>
+            <input type="week" id="i_semana">
+        </p>
+        <p class="campo">
+            <label for="i_numero">Digite um número inteiro</label>
+            <input type="number" id="i_numero">
+        </p>
+        <p class="campo">
+            <label for="i_numero_7_14">Digite um número entre o intervalo de 7 e 14</label>
+            <input type="number" id="i_numero_7_14">
+        </p>
+        <p class="campo">
+            <label for="i_pagina">Sua homepage</label>
+            <input type="url" id="i_pagina">
+        </p>
+    </fieldset>
+
+    <p class="campo">
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Limpar campos">
+    </p>
+    <script src="main.js"></script>
 </body>
 </html>
